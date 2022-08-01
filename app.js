@@ -1,4 +1,5 @@
 // import functions and grab DOM elements
+import { renderTeam } from './render-utils.js';
 import { renderGame } from './render-utils.js';
 const currentGameEl = document.getElementById('current-game-container');
 const pastGamesEl = document.getElementById('past-games-container');
@@ -11,6 +12,11 @@ const teamTwoSubtractButton = document.getElementById('team-two-subtract-button'
 const finishGameButton = document.getElementById('finish-game-button');
 const teamOneLabel = document.getElementById('team-one-name');
 const teamTwoLabel = document.getElementById('team-two-name');
+const nameOneInputEl = document.querySelector("input[name='team-one']");
+const nameTwoInputEl = document.querySelector("input[name='team-two']");
+
+
+
 
 // create an array to hold on to the state of past games
 
@@ -18,15 +24,23 @@ let name1 = '';
 let name2 =  '';
 let score1 = 0;
 let score2 = 0;
+let pastGames = [];
 
 nameFormButton.addEventListener('click', () => {
     // get the name data from the form
+    const nameOneEl = nameOneInputEl.value;
+    const nameTwoEl = nameTwoInputEl.value;
 
     // set the state to this data from the form
-
+    name1 = nameOneEl;
+    name2 = nameTwoEl;
     // reset the form values
+    nameOneInputEl.value = '';
+    nameTwoInputEl.value = '';
 
     // refresh the current game element with new data by calling the appropriate function
+    currentGameEl.append(renderGame(name1, name2, score1, score2));
+
 });
 
 
