@@ -46,26 +46,39 @@ nameFormButton.addEventListener('click', () => {
 
 teamOneAddButton.addEventListener('click', () => {
     // increment the current state for team one's score
-    
+    score1++;
     // refresh the current game element with new data by calling the appropriate function
+    currentGameEl.textContent="";
+    currentGameEl.append(renderGame(name1, name2, score1, score2));
+
 });
 
 teamTwoAddButton.addEventListener('click', () => {
     // increment the current state for team two's score
-
+    score2++;
     // refresh the current game element with new data by calling the appropriate function
+    currentGameEl.textContent="";
+    currentGameEl.append(renderGame(name1, name2, score1, score2));
 });
 
 teamOneSubtractButton.addEventListener('click', () => {
     // decrement the current state for team one's score
-
+    if (score1 > 0) {
+        score1--;
+    };
     // refresh the current game element with new data by calling the appropriate function
+    currentGameEl.textContent="";
+    currentGameEl.append(renderGame(name1, name2, score1, score2));
 });
 
 teamTwoSubtractButton.addEventListener('click', () => {
     // decrement the current state for team two's score
-
+    if (score2 > 0) {
+        score2--;
+    };
     // refresh the current game element with new data by calling the appropriate function
+    currentGameEl.textContent="";
+    currentGameEl.append(renderGame(name1, name2, score1, score2));
 });
 
 finishGameButton.addEventListener('click', () => {
