@@ -14,7 +14,7 @@ const nameOneInputEl = document.querySelector("input[name='team-one']");
 const nameTwoInputEl = document.querySelector("input[name='team-two']");
 
 let name1 = '';
-let name2 =  '';
+let name2 = '';
 let score1 = 0;
 let score2 = 0;
 let pastGames = [];
@@ -45,27 +45,27 @@ teamTwoAddButton.addEventListener('click', () => {
 teamOneSubtractButton.addEventListener('click', () => {
     if (score1 > 0) {
         score1--;
-    };
+    }
     refreshCurrentGameEl();
 });
 
 teamTwoSubtractButton.addEventListener('click', () => {
     if (score2 > 0) {
         score2--;
-    };
+    }
     refreshCurrentGameEl();
 });
 
 finishGameButton.addEventListener('click', () => {
     
-    const gameRecord = {'name1': name1, 'name2': name2, 'score1': score1, 'score2': score2};
+    const gameRecord = { 'name1': name1, 'name2': name2, 'score1': score1, 'score2': score2 };
 
     pastGames.push(gameRecord);
     
     displayAllGames();
 
-    name1='';
-    name2='';
+    name1 = '';
+    name2 = '';
     score1 = 0;
     score2 = 0;
     refreshCurrentGameEl();
@@ -85,10 +85,10 @@ function refreshCurrentGameEl() {
 }
 
 function displayAllGames() {
-    pastGamesEl.textContent='';
+    pastGamesEl.textContent = '';
     
     for (let game of pastGames) {
         const newGameEl = renderGame(game.name1, game.name2, game.score1, game.score2);
         pastGamesEl.append(newGameEl);
-    };
+    }
 }
